@@ -4,7 +4,6 @@ const returnRandBase = () => {
   return dnaBases[Math.floor(Math.random() * 4)];
 };
 
-
 // Returns a random single stand of DNA containing 15 bases
 const mockUpStrand = () => {
   const newStrand = [];
@@ -14,13 +13,11 @@ const mockUpStrand = () => {
   return newStrand;
 };
 
-
 // Factory function creates modelled organism objects
 const pAequorFactory = (num, arr) => {
   return {
     'specimenNum': num,
     'dna': arr,
-
     //Mutates DNA of instance
     mutate() {
       let baseSelect = Math.floor(Math.random()*15);
@@ -31,19 +28,17 @@ const pAequorFactory = (num, arr) => {
       this.dna[baseSelect] = mutation;
       return this.dna;
     },
-
     //Compares DNA with another instance
     compareDNA(pAequor) {
       let counter = 0
       for(let i=0; i < this.dna.length; i++) {
         if (this.dna[i] === pAequor.dna[i]) {
             counter++
-        }
+          }
         }
         let percentageInCommon = counter/15*100;
         console.log(`specimen ${this.specimenNum} and specimen ${pAequor.specimenNum} have ${percentageInCommon}% DNA in common`);
       },
-
       //Tests if instance is likely to survive
       willLikelySurvive() {
       let counter = 0
