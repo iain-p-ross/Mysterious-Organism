@@ -18,6 +18,7 @@ const pAequorFactory = (num, arr) => {
   return {
     'specimenNum': num,
     'dna': arr,
+
     //Mutates DNA of instance
     mutate() {
       let baseSelect = Math.floor(Math.random()*15);
@@ -28,6 +29,7 @@ const pAequorFactory = (num, arr) => {
       this.dna[baseSelect] = mutation;
       return this.dna;
     },
+
     //Compares DNA with another instance
     compareDNA(pAequor) {
       let counter = 0
@@ -39,6 +41,7 @@ const pAequorFactory = (num, arr) => {
         let percentageInCommon = counter/15*100;
         console.log(`specimen ${this.specimenNum} and specimen ${pAequor.specimenNum} have ${percentageInCommon}% DNA in common`);
       },
+
       //Tests if instance is likely to survive
       willLikelySurvive() {
       let counter = 0
@@ -53,6 +56,7 @@ const pAequorFactory = (num, arr) => {
           return false;
         }
       },
+
       //Creates array of complementary DNA strand
       complementStrand() {
         let complementArray = []
@@ -73,13 +77,14 @@ const pAequorFactory = (num, arr) => {
   }
 }
 
+
 //Example of single instance creation
 const test = pAequorFactory (1, mockUpStrand());
 console.log(test);
 
-
 //Example of the complementary strand function
 console.log("Complementary string: " + test.complementStrand());
+
 
 //Creates an array of survivable object instances of variable size
 const createpAequorArray = (num) => {
@@ -95,15 +100,16 @@ for(let i=0; i<num; i++) {
 return instanceArr;
 }
 
-//Returns comparison of DNA of any two instances of user named pAequorArray
-const compareDNAinArray = (arrayName, specimenA, specimenB) => {
-  return arrayName[specimenA].compareDNA(arrayName[specimenB]);
-}
-
 //Example array of 30 instances
 const arrayOfThirtySpecimens = createpAequorArray(30);
 //uncommment line below to log the array
 //console.log(arrayOfThirtySpecimens);
+
+
+//Returns comparison of DNA of any two instances of user named pAequorArray
+const compareDNAinArray = (arrayName, specimenA, specimenB) => {
+  return arrayName[specimenA].compareDNA(arrayName[specimenB]);
+}
 
 //Example DNA comparison within arrayOfThirtyInstances
 compareDNAinArray(arrayOfThirtySpecimens, 1, 14);
