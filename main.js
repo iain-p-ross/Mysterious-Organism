@@ -73,14 +73,12 @@ const pAequorFactory = (num, arr) => {
   }
 }
 
-
 //Example of single instance creation
 const test = pAequorFactory (1, mockUpStrand());
 console.log(test);
 
 //Example of the complementary strand function
 console.log("Complementary string: " + test.complementStrand());
-
 
 //Creates an array of survivable object instances of variable size
 const createpAequorArray = (num) => {
@@ -100,7 +98,6 @@ return instanceArr;
 const arrayOfThirtySpecimens = createpAequorArray(30);
 //uncommment line below to log the array
 //console.log(arrayOfThirtySpecimens);
-
 
 //Returns comparison of DNA of any two instances of user named pAequorArray
 const compareDNAinArray = (arrayName, specimenA, specimenB) => {
